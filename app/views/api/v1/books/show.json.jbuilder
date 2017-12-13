@@ -5,3 +5,4 @@
   json.upc_code @book.upc_code
   json.price @book.price
   json.genre  @book.catalog.name
+  json.price  @book.price

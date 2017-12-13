@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
     resources :books, only: [:index, :show]
     resources :catalogs, only: [:index, :show]
+    resources :orders, only: [:create]
 
     end
   end
