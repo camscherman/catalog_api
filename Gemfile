@@ -31,6 +31,7 @@ gem 'faker'
 gem 'bcrypt'
 gem 'devise'
 gem 'activeadmin'
+gem 'rack-cors', :require => 'rack/cors'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
