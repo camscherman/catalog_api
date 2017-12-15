@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171213212159) do
+ActiveRecord::Schema.define(version: 20171214232304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,9 +69,21 @@ ActiveRecord::Schema.define(version: 20171213212159) do
     t.string "user_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status", default: "pending"
+    t.integer "client_order_id"
     t.index ["book_id"], name: "index_orders_on_book_id"
+  end
+
+  create_table "shipments", force: :cascade do |t|
+    t.bigint "book_id"
+    t.string "tracking_number"
+    t.string "customer_email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_shipments_on_book_id"
   end
 
   add_foreign_key "books", "catalogs"
   add_foreign_key "orders", "books"
+  add_foreign_key "shipments", "books"
 end

@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  namespace :api do
+    namespace :v1 do
+      get 'shipments/create'
+    end
+  end
+
   get 'home/index'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -12,6 +18,7 @@ Rails.application.routes.draw do
     resources :books, only: [:index, :show]
     resources :catalogs, only: [:index, :show]
     resources :orders, only: [:create]
+    resources :shipments, only: [:create]
 
     end
   end
